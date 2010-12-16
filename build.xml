@@ -522,6 +522,7 @@
                 <proguard>
                     @${proguard.config}
                     -injars ${project.jars}
+                    -injars ${android.tools.dir}/scala/lib/scala-library.jar
                     -outjars ${obfuscated.jar.file}
                     -libraryjars ${android.libraryjars}
                     -dump ${obfuscate.absolute.dir}/dump.txt
