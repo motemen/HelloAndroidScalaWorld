@@ -446,6 +446,18 @@
                         <fileset dir="${extensible.libs.classpath}" includes="*.jar" />
                     </classpath>
                 </javac>
+                <taskdef resource="scala/tools/ant/antlib.xml"
+                    classpath="${android.tools.dir}/scala/lib/scala-compiler.jar:${android.tools.dir}/scala/lib/scala-library.jar" />
+                <scalac force="changed" deprecation="on"
+                        srcdir="${source.dir}" includes="**/*.scala"
+                        destdir="${out.classes.absolute.dir}">
+                    <classpath>
+                        <pathelement location="${android.jar}"/>
+                        <pathelement location="${out.classes.absolute.dir}" />
+                        <fileset dir="${android.tools.dir}/lib" includes="*.jar"/>
+                        <fileset dir="${android.tools.dir}/scala/lib" includes="*.jar"/>
+                    </classpath>
+                </scalac>
             </then>
             <else>
                 <echo>hasCode = false. Skipping...</echo>
